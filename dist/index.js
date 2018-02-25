@@ -1,0 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const app_1 = require("./app");
+const http = require("http");
+const serverUtils_1 = require("./utils/serverUtils");
+const server = http.createServer(app_1.default);
+const port = serverUtils_1.normalizePort(process.env.prot || 3000);
+server.listen(3000);
+server.on('error', serverUtils_1.onError(server));
+server.on('listening', serverUtils_1.onListening(server));
